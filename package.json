@@ -1,0 +1,11 @@
+{
+  "name": "xuequ",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^6.1.0",
+    "terser": "^5.24.0"
+  }
+}

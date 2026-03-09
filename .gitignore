@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build dist
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs & temp
+*.log
+npm-debug.log*
+.npm
+
+# Env (if you add API keys later)
+.env
+.env.local
+.env.*.local
+
+bak/

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta
+    name="viewport"
+    content="initial-scale=1.0, user-scalable=no, width=device-width"
+  />
+  <title>HELLO，AMAP!</title>
+  <style>
+      html,
+      body,
+      #container {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+      }
+
+      .my_marker {
+          scale: .7;
+      }
+
+      #my_input {
+          position: absolute;
+          top: 1px;
+      }
+
+      #my-panel {
+          position: absolute;
+          top: 20px;
+      }
+  </style>
+</head>
+<body>
+<div id="container"></div>
+<!--<input id="my_input">-->
+<!--<div id="my-panel"></div>-->
+<script type="text/javascript">
+  window._AMapSecurityConfig = {
+    securityJsCode: "f8fe6463c24034365b171535c6b12976",
+  };
+</script>
+<script src="https://webapi.amap.com/loader.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
