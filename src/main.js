@@ -3,7 +3,7 @@ import {drawSchool} from "./map/drawSchool.js";
 // import { drawSchoolDistrictManual } from './map/drawSchoolDistrictManual.js';
 
 AMapLoader.load({
-  key: '4760a0052eef01506b410c193fdd749a',
+  key: '__AMAP_API_KEY__',
   version: '2.0'
 })
 .then(AMap => {

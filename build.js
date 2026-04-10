@@ -7,6 +7,19 @@ const root = __dirname;
 const srcDir = path.join(root, "src");
 const outputDir = path.join(root, "dist");
 
+// Read API credentials from environment variables
+const AMAP_API_KEY = process.env.AMAP_API_KEY;
+const AMAP_SECURITY_CODE = process.env.AMAP_SECURITY_CODE;
+
+if (!AMAP_API_KEY || !AMAP_SECURITY_CODE) {
+  console.error(
+    "ERROR: Missing required environment variables.\n" +
+    "Please set AMAP_API_KEY and AMAP_SECURITY_CODE before building.\n" +
+    "See .env.example for details."
+  );
+  process.exit(1);
+}
+
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir);
 }
@@ -17,6 +30,9 @@ function read(file) {
 
 // 读取文件
 let html = read("index.html");
+
+// Inject environment variables into HTML
+html = html.replace("__AMAP_SECURITY_CODE__", AMAP_SECURITY_CODE);
 
 let main = read("main.js");
 let drawSchool = read("map/drawSchool.js");
@@ -38,6 +54,9 @@ drawDistrict = drawDistrict.replace(/export\s+function/g, "function");
 drawSchool = drawSchool.replace(/import .*;/g, "");
 drawDistrict = drawDistrict.replace(/import .*;/g, "");
 main = main.replace(/import .*;/g, "");
+
+// Inject environment variables into JS
+main = main.replace("__AMAP_API_KEY__", AMAP_API_KEY);
 
 // 合并顺序
 const finalJS = `
